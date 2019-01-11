@@ -45,8 +45,8 @@ void print_packet_info(const u_char *packet, struct pcap_pkthdr header) {
 	printf("來源ip位址:%s\n目的ip位址:%s\n來源port:%hu\n目的port:%hu\n封包長度:%hu bytes\n封包時間:%s\n",
 		src,
 		dst,
-		tcp->th_sport,
-		tcp->th_dport,
+		ntohs(tcp->th_sport),
+	       	ntohs(tcp->th_dport),
 		header.len,
 		tmbuf
 	);
